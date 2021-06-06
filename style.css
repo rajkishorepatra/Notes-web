@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0%;
+}
+.backimage{
+    width: 100%;
+    height: 100vh;
+    background-image: url(note.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+.logo{
+    width: 200px;
+    height: 150px;
+    margin-top: 6%;
+    margin-left: -8%;
+}
+
+.header{
+    width: 85%;
+    height: 15%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button{
+    color: chocolate;
+    margin-right: -5%;
+    margin-top: -3%;
+    padding: 10px 25px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.content{
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+h1{
+    font-style: italic;
+    font-size: 80px;
+    margin: 10px 0 30px;
+    line-height: 80px;
+}
+
+.loginimage{
+    width: 100%;
+    height: 100vh;
+    background-image: url(login.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
