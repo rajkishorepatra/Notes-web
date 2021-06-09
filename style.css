@@ -31,28 +31,23 @@ button{
     color: chocolate;
     margin-right: -7%;
     margin-left: -50%;
-    margin-top: -3%;
     padding: 10px 25px;
-    background: transparent;
-    border: 2px solid white;
+    background-color: transparent;
+    border: 2.5px solid whitesmoke;
     border-radius: 30px;
-    cursor: pointer;
 }
 
 .content{
     color: red;
     position: absolute;
-    top: 50%;
+    bottom: 30%;
     left: 20%;
-    transform: translateY(-50%);
-    z-index: 2;
 }
 
 h1{
-    font-style: italic;
+    font-family: cursive;
+    margin-left: 40px;
     font-size: 80px;
-    margin: 10px 0 30px;
-    line-height: 80px;
 }
 
 .loginimage{
@@ -63,4 +58,19 @@ h1{
     background-position: center;
     position: relative;
     overflow: hidden;
+}
+
+#login{
+    color: chocolate;
+    width: 20%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40%;
+    background-color: transparent;
+    border: 3px solid whitesmoke;
+    border-radius: 20px;
+}
+
+h5{
+    margin-right: 65%;
 }
