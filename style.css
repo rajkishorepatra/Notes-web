@@ -74,3 +74,11 @@ h1{
 h5{
     margin-right: 65%;
 }
+
+.loginhead{
+    margin-top: 8%;
+    color: darkred;
+    text-align: center;
+    margin-bottom: 50px;
+    font-family: cursive;
+}
