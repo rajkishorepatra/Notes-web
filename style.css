@@ -1,30 +1,61 @@
 *{
     margin: 0;
-    padding: 0%;
+    padding: 0;
+    box-sizing: border-box;
 }
-.backimage{
+
+header{
+    top: 0;
     width: 100%;
-    height: 100vh;
-    background-image: url(note.jpg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
+    height: 10rem;
+    padding: 10px 100px;
+    padding-top: 15px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+    position: fixed;
 }
+
+header.sticky{
+    background-color: wheat;
+    margin-top: -10px;
+    padding: 5px 100px;
+}
+
+.backimage{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(xyz.jpg);
+    background-size: cover;
+}
+
 .logo{
     width: 200px;
     height: 150px;
-    margin-top: 6%;
     margin-left: -8%;
 }
 
-.header{
-    width: 85%;
-    height: 15%;
-    margin: auto;
+.navigation{
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-right: -50px;
+}
+
+.navigation li{
+    list-style: none;
+    margin-left: 30px;
+}
+
+.navigation li a{
+    text-decoration: none;
+    color: red;
+    font-size: 20px;
 }
 
 button{
@@ -38,10 +69,13 @@ button{
 }
 
 .content{
-    color: red;
+    color: navy;
     position: absolute;
-    bottom: 30%;
+    bottom: 25%;
     left: 20%;
+}
+.content h3{
+    font-family: cursive;
 }
 
 h1{
@@ -81,4 +115,137 @@ h5{
     text-align: center;
     margin-bottom: 50px;
     font-family: cursive;
+}
+
+#first{
+    min-height: 1000px;
+}
+
+.btn{
+    font-size: 20px;
+    color: whitesmoke;
+    background: lightcoral;
+    display: inline-block;
+    padding: 10px 30px;
+    margin-top: 5px;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    letter-spacing: 3px;
+}
+
+li:hover{
+    letter-spacing: 3px;
+    transition: 0.5s;
+}
+
+
+blockquote{
+    border-left:none
+}
+
+.quote-badge{
+    background-color: rgba(0, 0, 0, 0.2);   
+}
+
+.quote-box{
+    
+    overflow: hidden;
+    margin-left: 20%;
+    margin-bottom: 5%;
+    border-radius: 17px;
+    background-color: #4ADFCC;
+    margin-top: 25px;
+    color:white;
+    width: 700px;
+    box-shadow: 2px 2px 2px 2px #E0E0E0;
+}
+
+.quotation-mark{
+    
+    margin-top: -10px;
+    font-weight: bold;
+    font-size:100px;
+    color:white;
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.quote-text{
+    
+    font-size: 19px;
+    margin-top: -65px;
+}
+
+#btn{
+    border-radius: 20px;
+    margin-left: 40%;
+}
+
+.quotes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(90deg,#49aeff,#ff4c89);
+}
+
+.container h2{
+    font-size: 50px;
+    margin-left: 40%;
+    margin-bottom: 10%;
+}
+
+.contact{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background-color: grey;
+    background-size: cover;
+}
+
+.contact h2{
+    margin-left: 43%;
+    margin-top: 10%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 50px;
+    color: yellow;
+}
+
+#raj{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: -50em;
+    margin-top: 20em;
+}
+
+#raj:hover{
+    width: 220px;
+    height: 220px;
+    transition: 1s;
+}
+
+.contact .raj h3{
+    margin-left: -18em;
+    margin-top: -4em;
+}
+
+#pull{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 19.5em;
+}
+
+#pull:hover{
+    width: 220px;
+    height: 220px;
+    transition: 1s;
+}
+
+.contact .pull h3{
+    margin-left: 10em;
+    margin-top: -4em;
 }

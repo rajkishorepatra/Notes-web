@@ -17,3 +17,28 @@ function myfunction() {
   							'</div>';
     list.appendChild(newMessage);
 }
+
+
+
+var url = "https://goquotes-api.herokuapp.com/api/v1/random?count=1"
+var x;
+
+fetch(url)
+.then((res) => res.json())
+.then((data) => x = data)
+.then((x) =>{ 
+    document.getElementById("text").innerHTML = x.quotes[0].text; 
+    document.getElementById("auth").innerHTML = x.quotes[0].author; 
+})
+.catch((err) => console.err(err))
+
+function quotes() {
+    fetch(url)
+    .then((res) => res.json())
+    .then((data) => x = data)
+    .then((x) =>{ 
+        document.getElementById("text").innerHTML = x.quotes[0].text; 
+        document.getElementById("auth").innerHTML = x.quotes[0].author; 
+    })
+    .catch((err) => console.err(err))
+}
