@@ -153,8 +153,8 @@ blockquote{
 .quote-box{
     
     overflow: hidden;
-    margin-left: 20%;
-    margin-bottom: 5%;
+    margin-left: 20rem;
+    margin-bottom: 5rem;
     border-radius: 17px;
     background-color: #4ADFCC;
     margin-top: 25px;
@@ -217,7 +217,7 @@ blockquote{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin-left: -50em;
+    margin-left: -48em;
     margin-top: 20em;
 }
 
@@ -228,7 +228,7 @@ blockquote{
 }
 
 .contact .raj h3{
-    margin-left: -18em;
+    margin-left: -19em;
     margin-top: -4em;
 }
 
@@ -237,6 +237,7 @@ blockquote{
     height: 200px;
     border-radius: 50%;
     margin-top: 19.5em;
+    margin-left: -2em;
 }
 
 #pull:hover{
@@ -246,6 +247,6 @@ blockquote{
 }
 
 .contact .pull h3{
-    margin-left: 10em;
+    margin-left: 8em;
     margin-top: -4em;
 }
