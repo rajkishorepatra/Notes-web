@@ -51,7 +51,7 @@ function login() {
     const password = document.getElementById("password").value;
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((user) => localStorage.setItem("user", JSON.stringify(user.user)))
-        .then(() => window.location = "/index.html")
+        .then(() => window.location = "/notes.html")
         .catch((error) => {
             document.getElementById("error").innerHTML = error.message
         })
