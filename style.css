@@ -84,39 +84,6 @@ h1{
     font-size: 80px;
 }
 
-.loginimage{
-    width: 100%;
-    height: 100vh;
-    background-image: url(login.jpg);
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-}
-
-#login{
-    color: chocolate;
-    width: 20%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    margin-left: 40%;
-    background-color: transparent;
-    border: 3px solid whitesmoke;
-    border-radius: 20px;
-}
-
-h5{
-    margin-right: 65%;
-}
-
-.loginhead{
-    margin-top: 8%;
-    color: darkred;
-    text-align: center;
-    margin-bottom: 50px;
-    font-family: cursive;
-}
-
 #first{
     min-height: 1000px;
 }
