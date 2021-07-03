@@ -6,23 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="notes.css">
-    <style>
-        .custom-card {
-            background-color: wheat;
-        }
-    </style>
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 
-<body onload="notes()">
+<body  onload="checkuser()">
     <input type="checkbox" id="checkbox">
     <header class="header">
-        <img src="logo1.png" alt="logo">
-        <label for="checkbox">
-            <i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
-        </label>
+        <a href="index.html"><img src="logo1.png" alt="logo"></a>
+            <label for="checkbox">
+                <i id="navbtn" class="fa fa-bars" aria-hidden="true"></i>
+            </label>
         </h2>
         <a href="dashboard.html"><i class="fa fa-user" aria-hidden="true"></i></a>
     </header>
@@ -30,13 +23,13 @@
         <nav class="side-bar">
             <ul>
                 <li>
-                    <a href="dashboard.html">
+                    <a href="#">
                         <i class="fa fa-desktop" aria-hidden="true"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="notes.html">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         <span>Notes</span>
                     </a>
@@ -56,25 +49,21 @@
             </ul>
         </nav>
         <section class="sec-1">
-
-            <body class="bg-secondary text-dark">
-                <div class="container mt-5 col-md-6">
-                    <h2 class="card-title text-center" style="margin-top: -1em;"><b>ADD YOUR NOTES</b></h2>
-                    <form class="form">
-                        <label for="noteTitle" style="margin-top: 2em;"><b>Enter Note Title:</b></label>
-                        <input name="title" placeholder="Note Title Here !!!" id="noteTitle" class="form-control mb-3">
-                        <label for="textarea" id="textbox"><b>Enter Note Description:</b></label>
-                        <textarea name="notes" placeholder="Enter Your Notes !!!" id="textarea" cols="80" rows="8"
-                            class="form-control"></textarea>
-                        <button onclick="myfunction()" class="form-control btn btn-primary mt-3" style="width: 45%;"
-                            type="button">Add</button>
-                        <button id="sptotext" class="form-control btn btn-primary mt-3"
-                            style="width: 45%; float: right;" type="button">Start Voice Recognition</button>
-                    </form>
-                </div>
-                <div id="messages"></div>
+            <div class="box">
+                <div class="face face1"><span><b>Hello User , Welcome to your Personal Notes Hub Account!</b></span></div>
+                <div class="face face2"><span><b>Hello User , Welcome to your Personal Notes Hub Account!</b></span></div>
+            </div>
+            <section class="wrapper">
+            <div class="static-txt"><b>START ADDING YOUR</b></div>
+            <ul class="dynamic-txt">
+                <li><span><b>NOTES</b></span></li>
+                <li><span><b>TODO-LIST</b></span></li>
+            </ul>
         </section>
+        </section>
+        
     </div>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
@@ -84,5 +73,4 @@
     <script src="notes.js"></script>
     <script src="firebase.js"></script>
 </body>
-
 </html>

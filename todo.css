@@ -1,0 +1,217 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: arial, sans-serif;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    height: 65px;
+    padding: 15px 30px;
+    background: black;
+    color: whitesmoke;
+}
+
+.header i{
+    font-size: 30px;
+    margin-left: 36em;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+.header i:hover{
+    color: blue;
+}
+
+.header img{
+    height: 10em;
+    margin-left: -5px;
+}
+
+
+.side-bar{
+    width:180px;
+    background: #262931;
+    min-height: 100vh;
+    transition: 500ms width;
+}
+
+.body{
+    display: flex;
+    background-color: #111;
+}
+
+.sec-1{
+    width: 100%;
+    background: url(lg.jpg);
+    background-color: aqua;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.side-bar ul{
+    margin-top: 20px;
+    list-style: none;
+}
+
+.side-bar ul li{
+    font-size: 16px;
+    padding: 15px 0px;
+    padding-left: 20px;
+    transition: 500ms;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.side-bar ul li:hover{
+    background: #127b8e;
+}
+
+.side-bar ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.side-bar ul li a i{
+    display: inline-block;
+    padding-right: 10px;
+    font-size: 23px;
+    margin-left: -5px;
+}
+
+#navbtn{
+    display: inline-block;
+    font-size: 25px;
+    margin-left: -4px;
+    transition: 300ms color;
+}
+
+#checkbox{
+    display: none;
+}
+
+#checkbox:checked ~ .body .side-bar{
+    width: 60px;
+}
+
+#checkbox:checked ~ .body .side-bar .user-p{
+    visibility: hidden;
+}
+
+#checkbox:checked ~ .body .side-bar a span{
+    display: none;
+}
+
+.to{
+    height: 100%;
+    background-color: #111;
+    box-sizing: border-box;
+    margin-top: -42em;
+    margin-left: 10em;
+}
+
+h1 {
+	color: #fff;
+	font-size: 3rem;
+	font-weight: 50;
+	text-align: center;
+	margin: 1rem 0 3rem;
+	font-family: 'Hind', sans-serif;
+}
+
+.title{
+	color: lime;
+	text-transform: uppercase;
+	font-weight: 800;
+}
+
+.inputDiv{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    margin-top: -2em;
+    margin-left: 2em;
+}
+
+.input{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 350px;
+    margin: 0.25rem;
+    transition: .5s;
+    font-size: 1.15rem;
+}
+
+.add{
+	outline: none;
+    border: none;
+    height: 50px;
+    border-radius: 25px;
+    width: 50px;
+    background-color: lime;
+    color: white;
+    cursor: pointer;
+    transition: .5s;
+    margin: 0.25rem;
+}
+
+.add:hover{
+	opacity: 0.7;
+}
+
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+}
+
+.item{
+	padding: 0.5rem;
+	border-bottom: 4px solid #fff;
+	margin-bottom: 1.5rem;
+}
+
+.item_input{
+	background: none;
+	outline: none;
+	border: none;
+	color: #fff;
+	font-size: 1.4rem;
+	width: 245px;
+}
+
+.edit{
+	background: none;
+	outline: none;
+	border: none;
+	color: lime;
+	font-size: 1.4rem;
+	font-family: 'Hind', sans-serif;
+	margin: 0 0.5rem;
+	cursor: pointer;
+}
+
+.remove{
+	background: none;
+	outline: none;
+	border: none;
+	color: #E00;
+	font-size: 1.4rem;
+	font-family: 'Hind', sans-serif;
+	cursor: pointer;
+}

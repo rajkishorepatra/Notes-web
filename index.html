@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body id="first">
+<body id="first" onload="quotes()">
     <header>
         <img src="logo1.png" class="logo">
         <ul class="navigation">
@@ -28,7 +28,7 @@
             <br>
             <a href="#" class="btn" onclick="checkuser()">Click Here to Add Notes</a>
         </div>
-    </section>
+    </section> 
 
     <section class="quotes" id="quotes">
         <div class="container">
@@ -115,36 +115,19 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-    <!-- <script>
-        // Initialize Firebase
-        // firebase.initializeApp(firebaseConfig);
-        // firebase.analytics();
-        // firebase.firestore().collection("Todo").add({
-        //     id: "1223456789", todo: "complete task a"
-        // });
-        // var y = []
-        // firebase
-        //     .firestore()
-        //     .collection("Todo")
-        //     .orderBy("id", "desc").onSnapshot((queryData) => { queryData.forEach((doc) => y.push(doc.data())) });
-        // console.log("y,",y)
-    </script> -->
     <script src="notes.js"></script>
+    <script src="firebase.js"></script>
     <script>
         function checkuser(){
-            // var user = firebase.auth().currentUser();
-            // console.log(user);
             firebase.auth().onAuthStateChanged((user) => {
                 if (user) {
-                    location.replace("notes.html")
+                    location.replace("dashboard.html")
                 }
                 else {
                     location.replace("login.html");
                 }
             })
         }
-            
     </script>
 </body>
 

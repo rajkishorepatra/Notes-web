@@ -1,86 +1,4 @@
 
-//   FIREBASE AUTHENTICATION STARTS
-
-var firebaseConfig = {
-    apiKey: "AIzaSyCrKl1OSs9nu2xEcZ184HZJQt_zkPVbT6Y",
-    authDomain: "basic-todo-app-ee711.firebaseapp.com",
-    databaseURL: "https://basic-todo-app-ee711.firebaseio.com",
-    projectId: "basic-todo-app-ee711",
-    storageBucket: "basic-todo-app-ee711.appspot.com",
-    messagingSenderId: "1009903618322",
-    appId: "1:1009903618322:web:3ad00f1a7a6987f5d3cbcb",
-    measurementId: "G-Q0FRHQ82X7"
-};
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-const auth = firebase.auth();
-
-function signup() {
-    var email = document.getElementById("email");
-    var password = document.getElementById("password");
-    const promise = auth.createUserWithEmailAndPassword(email.value, password.value);
-    promise.catch(e => alert(e.message));
-    alert("Signed up");
-}
-
-// firebase.auth().onAuthStateChanged((user) => {
-//     if (user) {
-//         location.replace("notes.html")
-//     }
-//     // else {
-//     //     window.location = ("/index.html");
-//     // }
-// })
-
-function checkuser() {
-    var data = localStorage.user || null;
-    console.log(data);
-    if (data === null) {
-        alert("Login to start adding notes");
-        window.location = "/login.html";
-    }
-    // else {
-    //     alert("Login to start adding notes");
-    //     window.location = "/login.html";
-    // }
-}
-
-function login() {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((user) => localStorage.setItem("user", JSON.stringify(user.user)))
-        .then(() => window.location = "/notes.html")
-        .catch((error) => {
-            document.getElementById("error").innerHTML = error.message
-        })
-    // firebase.auth().onAuthStateChanged((user) => {
-    //     if (user) {
-    //         window.location = "/notes.html";
-    //     }
-    // })
-}
-
-function logout() {
-    firebase.auth().signOut().then(localStorage.removeItem('user')).then(window.location = '/index.html');
-}
-
-function forgotpass() {
-    const email = document.getElementById("email1").value;
-    firebase.auth().sendPasswordResetEmail(email)
-        .then(() => {
-            alert("Reset link sent to your email id!")
-        })
-        .catch((error) => {
-            document.getElementById("error").innerHTML = error.message
-        })
-}
-
-//   FIREBASE AUTHENTICATION ENDS
-
-
-
 
 // SPEECH TO TEXT STARTS
 
@@ -101,9 +19,15 @@ sptotext.addEventListener('click', function () {
 
 
 
+
+
+
+
+
 //  notes with picture add starts
 
-var list = document.getElementById("messages");
+let todo_list = [];
+let list = document.getElementById("messages");
 function myfunction() {
     var text = document.getElementById("textarea");
     var title = document.getElementById("noteTitle");
@@ -111,7 +35,7 @@ function myfunction() {
     newMessage.classList.add("text-dark");
     newMessage.classList.add("col-md-3");
     newMessage.classList.add("col-sm-12");
-    newMessage.classList.add("col-sm-12");
+
     newMessage.innerHTML = '<div class="card mt-3">' +
         '<img class="card-img-top" src="https://source.unsplash.com/400x300/?' + title.value + '" alt="Card image cap">' +
         '<div class="card-body">' +
@@ -120,34 +44,120 @@ function myfunction() {
         '</div>' +
         '</div>';
     list.appendChild(newMessage);
+
+    var id = firebase.auth().currentUser.uid;
+    firebase.database().ref('Notes').set({
+        uid : id,
+        todo_title : title.value,
+        todo_body : text.value,
+    })
+
+
+    var id = firebase.auth().currentUser.uid;
+    console.log(id);
+    
+    firebase.firestore()
+        .collection('Notes')
+        .where('uid', '==', id)
+        .get()
+        .then((queryData) => { queryData.forEach((doc) => todo_list.push(doc.data())) })
+        .then(() => {
+            todo_list.forEach((todo) => {
+                console.log(todo);
+                var newDiv = document.createElement("div");
+                newDiv.classList.add("text-dark");
+                newDiv.classList.add("col-md-3");
+                newDiv.classList.add("col-sm-12");
+                newDiv.innerHTML = `
+            <div class="container">
+                <div id="messages" class="mt-4"></div>
+            </div>
+            <div class="card mt-3">
+                <img class="card-img-top" src="https://source.unsplash.com/400x300/?${todo.todo_title}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${todo.todo_title}</h5>
+                    <p class="card-text custom-card">${todo.todo_body}</p>
+                </div>
+            </div>
+            `
+            document.getElementById("messages").appendChild(newDiv);
+            })
+        })
+
+    console.log("outside of promise", todo_list);
 }
+
 
 //  notes with picture add ends
 
 
 
-// RANDOM QUOTE STARTS
 
-var url = "https://quotes.rest/quote/random?language=en&limit=1"
-var x;
-fetch(url)
-    .then((res) => res.json())
-    .then((data) => x = data)
-    .then((x) => {
-        document.getElementById("text").innerHTML = x.quotes[0].text;
-        document.getElementById("auth").innerHTML = x.quotes[0].author;
-    })
-    .catch((err) => console.err(err))
+
+
+
+
+// onloading the page, notes will load
+  
+  
+function notes(){
+    var x = JSON.parse(localStorage.user);
+    var id = x.uid;
+    console.log(id);
+    
+    firebase.firestore()
+        .collection('Notes')
+        .where('uid', '==', id)
+        .get()
+        .then((queryData) => { queryData.forEach((doc) => todo_list.push(doc.data())) })
+        .then(() => {
+            todo_list.forEach((todo) => {
+                console.log(todo);
+                var newDiv = document.createElement("div");
+                newDiv.classList.add("text-dark");
+                newDiv.classList.add("col-md-3");
+                newDiv.classList.add("col-sm-12");
+                newDiv.innerHTML = `
+            <div class="container">
+                <div id="messages" class="mt-4"></div>
+            </div>
+            <div class="card mt-3">
+                <img class="card-img-top" src="https://source.unsplash.com/400x300/?${todo.todo_title}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${todo.todo_title}</h5>
+                    <p class="card-text custom-card">${todo.todo_body}</p>
+                </div>
+            </div>
+            `
+            document.getElementById("messages").appendChild(newDiv);
+            })
+        })
+
+    console.log("outside of promise", todo_list);
+}
+
+// onloading the page, notes will load ends
+
+
+
+
+
+
+
+
+            // RANDOM QUOTE STARTS
+
+const quote = document.querySelector("#text");
+const author = document.querySelector("#auth");
 
 function quotes() {
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => x = data)
-        .then((x) => {
-            document.getElementById("text").innerHTML = x.quotes[0].text;
-            document.getElementById("auth").innerHTML = x.quotes[0].author;
+    fetch("http://quotable.io/random")
+        .then(res => res.json())
+        .then(data => {
+            text.innerHTML = data.content;
+            document.getElementById("auth").innerHTML = data.author;
         })
-        .catch((err) => console.log(err));
 }
+
 
             // RANDOM QUOTE ENDS
