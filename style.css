@@ -168,7 +168,7 @@ blockquote{
     width: 100%;
     min-height: 100vh;
     display: flex;
-    background-color: grey;
+    /* background-color: grey; */
     background-size: cover;
 }
 
@@ -180,40 +180,3 @@ blockquote{
     color: yellow;
 }
 
-#raj{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-left: -48em;
-    margin-top: 20em;
-}
-
-#raj:hover{
-    width: 220px;
-    height: 220px;
-    transition: 1s;
-}
-
-.contact .raj h3{
-    margin-left: -19em;
-    margin-top: -4em;
-}
-
-#pull{
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-top: 19.5em;
-    margin-left: -2em;
-}
-
-#pull:hover{
-    width: 220px;
-    height: 220px;
-    transition: 1s;
-}
-
-.contact .pull h3{
-    margin-left: 8em;
-    margin-top: -4em;
-}

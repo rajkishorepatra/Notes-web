@@ -26,7 +26,7 @@ sptotext.addEventListener('click', function () {
 
 //  notes with picture add starts
 
-let todo_list = [];
+let notes_list = [];
 let list = document.getElementById("messages");
 function myfunction() {
     var text = document.getElementById("textarea");
@@ -46,45 +46,15 @@ function myfunction() {
     list.appendChild(newMessage);
 
     var id = firebase.auth().currentUser.uid;
-    firebase.database().ref('Notes').set({
+    firebase.firestore().collection('Notes').add({
         uid : id,
         todo_title : title.value,
         todo_body : text.value,
-    })
-
-
-    var id = firebase.auth().currentUser.uid;
-    console.log(id);
-    
-    firebase.firestore()
-        .collection('Notes')
-        .where('uid', '==', id)
-        .get()
-        .then((queryData) => { queryData.forEach((doc) => todo_list.push(doc.data())) })
-        .then(() => {
-            todo_list.forEach((todo) => {
-                console.log(todo);
-                var newDiv = document.createElement("div");
-                newDiv.classList.add("text-dark");
-                newDiv.classList.add("col-md-3");
-                newDiv.classList.add("col-sm-12");
-                newDiv.innerHTML = `
-            <div class="container">
-                <div id="messages" class="mt-4"></div>
-            </div>
-            <div class="card mt-3">
-                <img class="card-img-top" src="https://source.unsplash.com/400x300/?${todo.todo_title}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">${todo.todo_title}</h5>
-                    <p class="card-text custom-card">${todo.todo_body}</p>
-                </div>
-            </div>
-            `
-            document.getElementById("messages").appendChild(newDiv);
-            })
-        })
-
-    console.log("outside of promise", todo_list);
+    });
+    console.log('Added Successfully');
+    if (document.getElementById(textarea).value=text.value) {
+        document.getElementById(textarea).value=" ";
+    };
 }
 
 
@@ -109,9 +79,9 @@ function notes(){
         .collection('Notes')
         .where('uid', '==', id)
         .get()
-        .then((queryData) => { queryData.forEach((doc) => todo_list.push(doc.data())) })
+        .then((queryData) => { queryData.forEach((doc) => notes_list.push(doc.data())) })
         .then(() => {
-            todo_list.forEach((todo) => {
+            notes_list.forEach((todo) => {
                 console.log(todo);
                 var newDiv = document.createElement("div");
                 newDiv.classList.add("text-dark");
@@ -133,7 +103,7 @@ function notes(){
             })
         })
 
-    console.log("outside of promise", todo_list);
+    console.log("outside of promise", notes_list);
 }
 
 // onloading the page, notes will load ends

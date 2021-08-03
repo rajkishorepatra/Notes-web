@@ -33,7 +33,7 @@
 
 .side-bar{
     width: 220px;
-    margin-left: -20px;
+    margin-left: -1.8em;
     background: #262931;
     min-height: 100vh;
     transition: 500ms width;
